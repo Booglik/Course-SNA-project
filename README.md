@@ -38,6 +38,7 @@ Blondel, V. D., Guillaume, J., Lambiotte, R., & Lefebvre, E. (2008). Fast unfold
 Dolgikh, D. A., & Jelínek, I. (2015). Graph-based music recommendation approach using social network analysis and community detection method. https://doi.org/10.1145/2812428.2812453
 
 Girvan, M., & Newman, M. (2002). Community structure in social and biological networks. Proceedings of the National Academy of Sciences of the United States of America, 99(12), 7821–7826. https://doi.org/10.1073/pnas.122653799
+
 SNAP: Network datasets: Graph Embedding with Self Clustering: Facebook and Deezer. (n.d.). https://snap.stanford.edu/data/gemsec-Deezer.html
 
 Journal of Statistical Mechanics: Theory and Experiment, 2008(10), P10008. https://doi.org/10.1088/1742-5468/2008/10/p10008
