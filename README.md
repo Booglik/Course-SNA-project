@@ -12,8 +12,8 @@ This project aims to explore the relationship between music preferences and soci
 To achieve this goal, we will take the following steps:
 
 + Acquire and preprocess the data: We will obtain the data from [Stanford Large Network Dataset Collection](https://snap.stanford.edu/data/gemsec-Deezer.html) and preprocess it to prepare it for analysis.
-+ Construct the friendship networks: Using the edge files, we will construct the friendship networks for each country.
-+ Analyze the genre preferences: Using the JSON files, we will examine the genre preferences of users in each country.
++ Construct the friendship networks: We will construct the friendship networks for each country.
++ Analyze the genre preferences: We will examine the genre preferences of users in each country.
 + Perform social network analysis: We will use social network analysis methods to explore the patterns and relationships in the data, including measures of centrality, clustering, and similarity.
 + Visualize the results: We will use various visualization techniques to present the results of our analysis and identify groups of users with similar music preferences and social connections.
 
