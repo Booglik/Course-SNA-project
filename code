@@ -42,6 +42,219 @@ def main():
     print(rearranged_data)
     rearranged_data.to_csv("HU_genres.csv")
 
+if __name__ == "__main__":
+    main()
+    
+    
+import pandas as pd
+
+
+def main():
+    hr_genres = pd.read_csv("HR_genres.csv")
+
+    genres_relations = pd.DataFrame()
+    print(hr_genres.columns)
+    for col in hr_genres.columns[1:]:
+        genres_relations[col] = [0]*len(hr_genres.columns[1:])
+    print(genres_relations)
+
+    for col in range(1, len(hr_genres.columns)):
+        for row in range(len(hr_genres["Pop"])):
+            if hr_genres.iloc[row, col] == 1:
+                for pair in range(col, len(hr_genres.columns)):
+                    if hr_genres.iloc[row, pair] == 1:
+                        print(col, row, pair)
+                        genres_relations.iloc[pair-1, col-1] += 1
+                        genres_relations.iloc[col-1, pair-1] += 1
+
+    print(genres_relations)
+    genres_relations.to_csv("HR_relations_heatmap.csv")
+
+
+if __name__ == "__main__":
+    main()   
+    
+import pandas as pd
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+
+
+def heatmap(data, row_labels, col_labels, ax=None,
+            cbar_kw=None, cbarlabel="", **kwargs):
+    """
+    Create a heatmap from a numpy array and two lists of labels.
+
+    Parameters
+    ----------
+    data
+        A 2D numpy array of shape (M, N).
+    row_labels
+        A list or array of length M with the labels for the rows.
+    col_labels
+        A list or array of length N with the labels for the columns.
+    ax
+        A `matplotlib.axes.Axes` instance to which the heatmap is plotted.  If
+        not provided, use current axes or create a new one.  Optional.
+    cbar_kw
+        A dictionary with arguments to `matplotlib.Figure.colorbar`.  Optional.
+    cbarlabel
+        The label for the colorbar.  Optional.
+    **kwargs
+        All other arguments are forwarded to `imshow`.
+    """
+
+    if ax is None:
+        ax = plt.gca()
+
+    if cbar_kw is None:
+        cbar_kw = {}
+
+    # Plot the heatmap
+    im = ax.imshow(data, **kwargs)
+
+    # Create colorbar
+    cbar = ax.figure.colorbar(im, ax=ax, **cbar_kw)
+    cbar.ax.set_ylabel(cbarlabel, rotation=-90, va="bottom")
+
+    # Show all ticks and label them with the respective list entries.
+    ax.set_xticks(np.arange(data.shape[1]), labels=col_labels)
+    ax.set_yticks(np.arange(data.shape[0]), labels=row_labels)
+
+    # Let the horizontal axes labeling appear on top.
+    ax.tick_params(top=True, bottom=False,
+                   labeltop=True, labelbottom=False)
+
+    # Rotate the tick labels and set their alignment.
+    plt.setp(ax.get_xticklabels(), rotation=-30, ha="right",
+             rotation_mode="anchor")
+
+    # Turn spines off and create white grid.
+    ax.spines[:].set_visible(False)
+
+    ax.set_xticks(np.arange(data.shape[1]+1)-.5, minor=True)
+    ax.set_yticks(np.arange(data.shape[0]+1)-.5, minor=True)
+    ax.grid(which="minor", color="w", linestyle='-', linewidth=3)
+    ax.tick_params(which="minor", bottom=False, left=False)
+
+    return im, cbar
+
+
+def annotate_heatmap(im, data=None, valfmt="{x:.2f}",
+                     textcolors=("black", "white"),
+                     threshold=None, **textkw):
+    """
+    A function to annotate a heatmap.
+
+    Parameters
+    ----------
+    im
+        The AxesImage to be labeled.
+    data
+        Data used to annotate.  If None, the image's data is used.  Optional.
+    valfmt
+        The format of the annotations inside the heatmap.  This should either
+        use the string format method, e.g. "$ {x:.2f}", or be a
+        `matplotlib.ticker.Formatter`.  Optional.
+    textcolors
+        A pair of colors.  The first is used for values below a threshold,
+        the second for those above.  Optional.
+    threshold
+        Value in data units according to which the colors from textcolors are
+        applied.  If None (the default) uses the middle of the colormap as
+        separation.  Optional.
+    **kwargs
+        All other arguments are forwarded to each call to `text` used to create
+        the text labels.
+    """
+
+    if not isinstance(data, (list, np.ndarray)):
+        data = im.get_array()
+
+    # Normalize the threshold to the images color range.
+    if threshold is not None:
+        threshold = im.norm(threshold)
+    else:
+        threshold = im.norm(data.max())/2.
+
+    # Set default alignment to center, but allow it to be
+    # overwritten by textkw.
+    kw = dict(horizontalalignment="center",
+              verticalalignment="center")
+    kw.update(textkw)
+
+    # Get the formatter in case a string is supplied
+    if isinstance(valfmt, str):
+        valfmt = matplotlib.ticker.StrMethodFormatter(valfmt)
+
+    # Loop over the data and create a `Text` for each "pixel".
+    # Change the text's color depending on the data.
+    texts = []
+    for i in range(data.shape[0]):
+        for j in range(data.shape[1]):
+            kw.update(color=textcolors[int(im.norm(data[i, j]) > threshold)])
+            text = im.axes.text(j, i, valfmt(data[i, j], None), **kw)
+            texts.append(text)
+
+    return texts
+
+
+def shorten_heatmap(heatmap_array, threshold=0):
+    deletion_array = []
+
+    for i in range(len(heatmap_array)):
+        if heatmap_array.iloc[i, i] < threshold:
+            deletion_array.append(i)
+    heatmap_array = heatmap_array.drop(index=deletion_array)
+
+    heatmap_array = heatmap_array.drop(heatmap_array.columns[deletion_array], axis=1)
+
+    return heatmap_array
+
+
+def main():
+
+    names = ["Croatia", "Hungary", "Romania"]
+    showed_heatmap = 2                         # Можно менять число, чтобы выбрать страну
+                                               # 0 - Хорватия, 1 - Венгрия, 2 - Румыния
+
+    hr_heatmap = pd.read_csv("HR_relations_heatmap.csv").drop('index', axis=1)
+    hu_heatmap = pd.read_csv("HU_relations_heatmap.csv").drop('index', axis=1)
+    ro_heatmap = pd.read_csv("RO_relations_heatmap.csv").drop('index', axis=1)
+
+    heatmaps = [hr_heatmap, hu_heatmap, ro_heatmap]
+    total_listeners = pd.DataFrame(data=[[0]*len(heatmaps[showed_heatmap])], columns=heatmaps[showed_heatmap].columns)
+    for i in range(len(heatmaps)):
+        heat_map = heatmaps[i]
+        for k in range(len(heat_map)):
+            heat_map.iloc[k, k] /= 2
+
+        heat_map = shorten_heatmap(heat_map, 2000)  # Можно менять порог число, чтобы выбрать
+                                                    # минимальное количество слушателей жанра
+
+        heatmaps[i] = heat_map
+
+    for column in total_listeners.columns:
+        if column not in heatmaps[showed_heatmap].columns:
+            total_listeners = total_listeners.drop(column, axis=1)
+
+    for i in range(len(heatmaps[showed_heatmap])):
+        total_listeners.iloc[0, i] = heatmaps[showed_heatmap].iloc[i, i]
+        heatmaps[showed_heatmap].iloc[:, i] /= heatmaps[showed_heatmap].iloc[i, i]
+
+    print("----------Total amount of listeners----------")
+    print(total_listeners)
+
+    fig, ax = plt.subplots()
+    heat_map = heatmaps[showed_heatmap]
+    im, cbar = heatmap(heat_map, heat_map.columns, heat_map.columns, ax=ax,
+                       cmap="YlGn", cbarlabel=names[showed_heatmap])
+
+    # annotate_heatmap(im, valfmt="")          # Выбрать одну из двух строк, верхняя убирает числа в ячейках
+    annotate_heatmap(im, valfmt="{x:.1f}")     # Нижняя добавляет долю от общего количества слушателей
+
+    plt.show()
+
 
 if __name__ == "__main__":
     main()
