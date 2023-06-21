@@ -1,4 +1,4 @@
-###Introduction
+# Introduction
 Music preference is a universal phenomenon that reflects people’s personality, culture, and environment. People listen to music for various reasons such as entertainment, relaxation, emotional regulation, socialization, and cultural identity expression. Music preferences vary across individuals and societies, and are influenced by various factors such as age, gender, education, socioeconomic status, and media exposure. In recent years, researchers have paid increasing attention to the relationship between music preference and cross-genre music consumption, which refers to the tendency to listen to music of different genres. Understanding this relationship is important because it can shed light on the mechanisms of music preference formation and the potential benefits of cross-genre music exposure. In this study, we investigate the relationships between preference for music of different genres and tendency to listen to music of other genres, using Croatia, Hungary, and Romania as examples. These countries have distinctive music cultures and histories and provide an interesting context to explore the diversity and commonality of music preferences and behaviors. 
 The topic is relevant as music preference is a universal phenomenon that is closely related to the individual's personality, social and cultural background, and emotional responses. Additionally, the tendency to listen to music of other genres may reflect an individual's openness to different experiences and cultural backgrounds. Therefore, investigating the relationship between music preference and the tendency to listen to music of other genres can provide insights into the cultural and psychological aspects of music consumption in different societies. 
 Talking about novelty while there are some studies on the relation between music preference and music listening behaviour in certain regions, there is little research on comparing the three countries, Croatia, Hungary, and Romania, which belong to similar cultural and historical backgrounds but have their own unique cultural heritages and contemporary music scenes.
@@ -8,7 +8,7 @@ Research question: What is the relationship between preference for music of diff
 
 ### Goal:To examine international trends in preferences for music of different genres and to determine the relationship between love for one genre and tendency to listen to music of other genres, using three countries as examples.
 
-#Objectives:
+# Objectives:
 1. To collect data about what kind of music genres people in three countries (Croatia, Hungary and Romania) prefer.
 Using statistical methods, estimate people's tendency to listen to other genres of music, if any.
 3. analyze the data to come up with an overall picture of international music preference and the relationship between music genres in the three countries.
@@ -16,7 +16,7 @@ Using statistical methods, estimate people's tendency to listen to other genres 
 5. Develop recommendations for the music industry based on the results of the study.
 
 
-#Metodology
+# Metodology
 In the application can be finded the code we created to show heatmaps (See Appendix 1-3). Heatmaps is a generic term that embodies a kind of graphical representation of data. In our case, the dataset consists of users and their music preferences on a particular site.
 We processed the data and made all sorts of combinations - how many people of one style listen to some other style (for example, how many metal fans also listen to pop music). Then we divided these numbers by the total number of listeners of one of the genres to get relative values. That is, the numbers in the cells are *fractions* of the total values.
 In this task, we are dealing with a pairing where a person has two preferences. Therefore, we considered that in all genre pairs, the number of fans of each genre is different.
