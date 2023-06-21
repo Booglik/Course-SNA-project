@@ -1,0 +1,47 @@
+import pandas as pd
+import json
+
+
+data = {'Pop': [1], 'Indie Rock': 0, 'Indie Pop/Folk': 0, 'International Pop': 0,
+        'Rap/Hip Hop': 1, 'Rock': 0, 'Indie Pop': 0, 'Alternative': 1, 'Dance': 1,
+        'Jazz': 0, 'Techno/House': 0, 'Electro': 1, 'Singer & Songwriter': 0, 'Films/Games': 0,
+        'Contemporary R&B': 0, 'R&B': 0, 'Film Scores': 0, 'Reggae': 0, 'Folk': 0, 'Disco': 0,
+        'Metal': 0, 'Vocal jazz': 0, 'Latin Music': 0, 'Old school soul': 0, 'Dirty South': 0,
+        'Dancefloor': 0, 'Hard Rock': 0, 'Kids': 0, 'Rock & Roll/Rockabilly': 0, 'Blues': 0,
+        'Comedy': 0, 'Dubstep': 0, 'Electro Pop/Electro Rock': 0, 'Jazz Hip Hop': 0, 'Soul & Funk': 0,
+        'Classical': 0, 'Country': 0, 'Trance': 0, 'Indie Rock/Rock pop': 0, 'East Coast': 0,
+        'Soundtracks': 0, 'Chill Out/Trip-Hop/Lounge': 0, 'TV Soundtracks': 0, 'Contemporary Soul': 0,
+        'Tropical': 0, 'Brazilian Music': 0, 'Dub': 0, 'Asian Music': 0, 'Electric Blues': 0,
+        'Dancehall/Ragga': 0, 'Electro Hip Hop': 0, 'Musicals': 0, 'Spirituality & Religion': 0}
+
+
+def main():
+    rearranged_data = pd.DataFrame(data)
+    k = 0
+
+    with open('HU_genres.json') as json_data:
+        hr_json_data = json.load(json_data)
+        i = 0
+        for user in hr_json_data:
+            new_row = {}
+            i += 1
+            for genre in hr_json_data[user]:
+                if not genre in rearranged_data.columns:
+                    rearranged_data[genre] = [0]*(i)
+                    print(genre)
+
+            for column in rearranged_data.columns:
+                if column in hr_json_data[user]:
+                    new_row[column] = 1
+                else:
+                    new_row[column] = 0
+            rearranged_data = rearranged_data.append(new_row, ignore_index=True)
+            k += 1
+
+        rearranged_data = rearranged_data.drop(0)
+    print(rearranged_data)
+    rearranged_data.to_csv("HU_genres.csv")
+
+
+if __name__ == "__main__":
+    main()
