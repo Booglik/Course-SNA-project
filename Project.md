@@ -21,7 +21,11 @@ Using statistical methods, estimate people's tendency to listen to other genres 
 
 
 # Metodology
-  Data is taken from [Stanford Large Network Dataset Collection](https://snap.stanford.edu/data/gemsec-Deezer.html). The original plan formed before to analyze users was defeated by large datasets with more than 50k years each and more than 1 million connections. Therefore genre preference analysis was chosen. First of all csv tables were generated from genre.json tables, by creating a matrix showing how many users listen both of the chosen genres (for ex:  HR_relations_heatmap.csv). Then the heatmaps were constructed.
+## Data
+Data is taken from [Stanford Large Network Dataset Collection](https://snap.stanford.edu/data/gemsec-Deezer.html). The data was collected from the music streaming service Deezer (November 2017). The csv files contain the edges -- nodes are indexed from 0. The json files contain the genre preferences of users -- each key is a user id, the genres loved are given as lists. Genre notations are consistent across users. In each dataset users could like 84 distinct genres. Liked genre lists were compiled based on the liked song lists. The countries included are Romania, Croatia and Hungary. For each dataset we listed the number of nodes an edges.
+
+## Methods   
+  The original plan formed before to analyze users was defeated by large datasets with more than 50k years each and more than 1 million connections. Therefore genre preference analysis was chosen. First of all csv tables were generated from genre.json tables, by creating a matrix showing how many users listen both of the chosen genres (for ex:  HR_relations_heatmap.csv). Then the heatmaps were constructed.
 
 
   In the application can be finded the code we created to show heatmaps (See Appendix 1-3). Heatmaps is a generic term that embodies a kind of graphical representation of data. In our case, the dataset consists of users and their music preferences on a Dezeer. It must be mentioned that we state the threshold of 2000 listeners for showing genre in heatmap, it is made for better vusialusation because of big number of possible genres.
@@ -32,15 +36,15 @@ Using statistical methods, estimate people's tendency to listen to other genres 
 The values in the cells are fractional, rounded to 1 decimal place. They can be regarded as a percentage (for example, 0.7 = 70%). In this case, a value of 0.5 is sort of an average correlation, 1 is a strong correlation, less than 0.5 there is no correlation.
 A similar analysis of musical genre correlations was conducted for all three countries under consideration.
 
-
-## Romania. 
+## Analysis
+### Romania
   If we talk about the reciprocal preferences in music among Romanian listeners, the following key trends can be highlighted. Pop and rock listeners have representatives of almost all other musical genres in their playlists. Thus, pop and rock listeners have a willingness to listen to other music genres in all their diversity and quite often. But the least interest in any other genres of music, except for one key genre, tends to be the lovers of rugby, classical music, latino music, hard and indie rock. There are also exceptions, for example, people who listen to metal also often happen to listen to hard rock. Nevertheless, the most diverse in musical consumption among the Romanian population are those who listen to pop music and light rock. That is, the main trend for this country is the fact that most people like only similar/similar sounding music, with the exception of pop music fans.
 
-## Croatia
+### Croatia
   If we turn to the temperature map of Croatia and look at which music lovers also willingly listen to other genres, in this country the number of people fans of different music genres is observed among more genre lovers. As in the case of Romania Croatia the main diversified listeners are fans of pop music, also a high correlation is observed among fans of rock similar to the previous example. But in the case of Croatia, the category of people who listen in addition to one favorite musical genre tends to like other music, also included fans of dance music, most indicators are close to one for all other music genres. Also among users from Croatia and fans of alternative music there is a love for Indian rock, disco music, hard rock, electro, reggae, which also indicates a relative openness to other genres. 
 But fans of genres such as blues, Latin music, indie-pop, jazz, and classical music remain mostly committed to one particular genre of music. What, in fact, we also observed in Romania for the fans of these genres.
 
-## Hungary
+### Hungary
 Speaking of the results of the heat map of Hungary we can also trace the familiar tendency that fans of pop music are open to listening to other music genres as well. Interestingly, in Croatia, together with fans of pop music, fans of dance music, electro, rock and, in some cases, alternative music are the most open to listening to other music genres. Note that in none of the previous countries representatives of alternative music were not ready to listen to love other musical genres. If we talk about the opposite, the lowest correlation observed fans of jazz, reggae and East Coast music, the figures in this case is very close to zero and demonstrates the willingness of fans of these genres to listen to any other music.
 
 ## Conclusion
