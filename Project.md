@@ -15,9 +15,9 @@ To examine international trends in preferences for music of different genres and
 # Objectives:
 1. To collect data about what kind of music genres people in three countries (Croatia, Hungary and Romania) prefer.
 Using statistical methods, estimate people's tendency to listen to other genres of music, if any.
-3. analyze the data to come up with an overall picture of international music preference and the relationship between music genres in the three countries.
-4. Draw conclusions about the relationship between musical genres and propensity to listen to them across cultures and countries, as well as the general international trend in musical tastes.
-5. Develop recommendations for the music industry based on the results of the study.
+2. analyze the data to come up with an overall picture of international music preference and the relationship between music genres in the three countries.
+3. Draw conclusions about the relationship between musical genres and propensity to listen to them across cultures and countries, as well as the general international trend in musical tastes.
+
 
 
 # Metodology
