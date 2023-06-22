@@ -52,7 +52,7 @@ Based on the trends observed in the three countries, it can be concluded that th
 
 # APPENDIX.
 ### Appendix 1. Heatmap Romania.
-![Quantity Romania](https://github.com/Booglik/Course-SNA-project/assets/72690848/6c6fb937-1906-4dfd-884f-c202bd105281)
+![Quantity Romania](https://github.com/Booglik/Course-SNA-project/assets/72690848/142778e4-21a2-4afd-a4c2-403e1eca76ec)
 ![Heatmap Romania](https://github.com/Booglik/Course-SNA-project/assets/72690848/3b0a1f5f-9c00-40ad-9429-b161d822991c)
 
 ### Appendix 2. Heatmap Croatia.
