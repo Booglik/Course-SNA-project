@@ -27,12 +27,12 @@ Data is taken from [Stanford Large Network Dataset Collection](https://snap.stan
 ## Methods   
   The original plan formed before to analyze users was defeated by large datasets with more than 50k years each and more than 1 million connections. Therefore genre preference analysis was chosen. First of all csv tables were generated from genre.json tables, by creating a matrix showing how many users listen both of the chosen genres (for ex:  HR_relations_heatmap.csv). Then the heatmaps were constructed.
 
-
   In the application can be finded the code we created to show heatmaps (See Appendix 1-3). Heatmaps is a generic term that embodies a kind of graphical representation of data. In our case, the dataset consists of users and their music preferences on a Dezeer. It must be mentioned that we state the threshold of 2000 listeners for showing genre in heatmap, it is made for better vusialusation because of big number of possible genres.
 
-  We processed the data and made all sorts of combinations - how many people of one style listen to some other style (for example, how many metal fans also listen to pop music). Then we divided these numbers by the total number of listeners of one of the genres to get relative values. That is, the numbers in the cells are *fractions* of the total values.
+  We processed the data and made all sorts of combinations - how many people of one style listen to some other style (for example, how many metal fans also listen to pop music). Then we divided these numbers by the total number of listeners of one of the genres to get relative values. That is, the numbers in the cells are *fractions* of the total values. 
 
-  In this task, we are dealing with a pairing where a person has two preferences. Therefore, we considered that in all genre pairs, the number of fans of each genre is different.
+  In this task, we are dealing with a pairing where a person has two preferences. Therefore, we considered that in all genre pairs, the number of fans of each genre is different. To answer the question of how many people among Indie rock fans are also fans of Alternative rock, we need to look for a column of Indie and a row of Alternative rock (Appendix 5).
+Otherwise, if we want to understand how many fans of Alternative are also into Indie, we look for the column with Alternative and the row with Indie.
 The values in the cells are fractional, rounded to 1 decimal place. They can be regarded as a percentage (for example, 0.7 = 70%). In this case, a value of 0.5 is sort of an average correlation, 1 is a strong correlation, less than 0.5 there is no correlation.
 A similar analysis of musical genre correlations was conducted for all three countries under consideration.
 
@@ -66,3 +66,4 @@ Based on the trends observed in the three countries, it can be concluded that th
 ### Apendix 4. Top genres within the countries
 ![subplots](https://github.com/Booglik/Course-SNA-project/assets/72690848/c4c82d51-3dbe-45af-bb78-8629c776aaa8)
 
+### Apendix 5. ![How to use](https://github.com/Booglik/Course-SNA-project/assets/72690848/53605a81-7edd-4418-a660-92f15b1530f9)
