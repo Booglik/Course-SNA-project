@@ -23,7 +23,8 @@ Using statistical methods, estimate people's tendency to listen to other genres 
 # Metodology
   The original plan formed before to analyze users was defeated by large datasets with more than 50k years each and more than 1 million connections. Therefore genre preference analysis was chosen. First of all csv tables were generated from genre.json tables, by creating a matrix showing how many users have a link from given genres (for ex:  HR_relations_heatmap.csv). Then the heatmaps were constructed.
 
-  In the application can be finded the code we created to show heatmaps (See Appendix 1-3). Heatmaps is a generic term that embodies a kind of graphical representation of data. In our case, the dataset consists of users and their music preferences on a particular site.
+
+  In the application can be finded the code we created to show heatmaps (See Appendix 1-3). Heatmaps is a generic term that embodies a kind of graphical representation of data. In our case, the dataset consists of users and their music preferences on a Dezeer. It must be mentioned that we state the threshold of 2000 listeners for showing genre in heatmap, it is made for better vusialusation because of big number of possible genres.
 
   We processed the data and made all sorts of combinations - how many people of one style listen to some other style (for example, how many metal fans also listen to pop music). Then we divided these numbers by the total number of listeners of one of the genres to get relative values. That is, the numbers in the cells are *fractions* of the total values.
 
