@@ -22,7 +22,7 @@ Using statistical methods, estimate people's tendency to listen to other genres 
 
 # Metodology
 ## Data
-Data is taken from [Stanford Large Network Dataset Collection](https://snap.stanford.edu/data/gemsec-Deezer.html). The data was collected from the music streaming service Deezer (November 2017). The csv files contain the edges -- nodes are indexed from 0. The json files contain the genre preferences of users -- each key is a user id, the genres loved are given as lists. Genre notations are consistent across users. In each dataset users could like 84 distinct genres. Liked genre lists were compiled based on the liked song lists. The countries included are Romania, Croatia and Hungary. For each dataset we listed the number of nodes an edges.
+Data is taken from [Stanford Large Network Dataset Collection](https://snap.stanford.edu/data/gemsec-Deezer.html). The data was collected from the music streaming service Deezer (November 2017). The csv files contain the edges -- nodes are indexed from 0. The json files contain the genre preferences of users -- each key is a user id, the genres loved are given as lists. Genre notations are consistent across users. In each dataset users could like 84 distinct genres. Liked genre lists were compiled based on the liked song lists. The countries included are Romania, Croatia and Hungary. 
 
 ## Methods   
   The original plan formed before to analyze users was defeated by large datasets with more than 50k years each and more than 1 million connections. Therefore genre preference analysis was chosen. First of all csv tables were generated from genre.json tables, by creating a matrix showing how many users listen both of the chosen genres (for ex:  HR_relations_heatmap.csv). Then the heatmaps were constructed.
