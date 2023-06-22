@@ -62,3 +62,7 @@ Based on the trends observed in the three countries, it can be concluded that th
 ### Appendix 3. Heatmap Hungary.
 ![Quantity Hungary](https://github.com/Booglik/Course-SNA-project/assets/72690848/8c1b307d-0490-4b09-8492-4b0d2b4a86ae)
 ![Heatmap Hungary](https://github.com/Booglik/Course-SNA-project/assets/72690848/55eca7b2-e18c-4726-bd7d-420f0f9d99c8)
+
+### Apendix 4. Top genres within the countries
+![subplots](https://github.com/Booglik/Course-SNA-project/assets/72690848/c4c82d51-3dbe-45af-bb78-8629c776aaa8)
+
